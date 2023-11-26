@@ -43,8 +43,8 @@ int main() {
 //        city->countOrganisms(Z or H goes here);// run once for each type
         cout << *city; //prints city
         cout << "GENERATION " << city->getGeneration() << endl;
-        cout << "HUMANS: " << city->countType(HUMAN_CH) << endl;
-        cout << "ZOMBIES: " << city->countType(ZOMBIE_CH) << endl;
+        cout << "HUMANS: " << city->countType(*city, HUMAN_CH) << endl;
+        cout << "ZOMBIES: " << city->countType(*city, ZOMBIE_CH) << endl;
 //    }//end while
 }//end main
 

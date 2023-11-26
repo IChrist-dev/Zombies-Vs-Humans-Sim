@@ -41,6 +41,7 @@ bool Organism::isTurn() {
 
 ostream &operator<<(ostream &output, Organism *organism) {
     Organism::addColor(organism->getColor());
+
     output << organism->getSpecies();
     return output;
 }

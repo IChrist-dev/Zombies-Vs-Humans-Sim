@@ -63,16 +63,17 @@ void City::move() {
 
 }
 
+// Printing function for city
 ostream &operator<<(ostream &output, City &city) {
     for (int i=0; i < GRIDSIZE; i++) {
         for (int j=0; j < GRIDSIZE; j++) {
             if (city.grid[i][j] != nullptr) {
                 char orgChar = city.getOrganism(i, j)->getSpecies();
-                cout << orgChar;
-                output << orgChar;
+
+                output << ' ' << orgChar;
             }
             else {
-                output << '_';
+                output << ' ' << '_';
             }
         }
         output << "\n";
@@ -86,12 +87,14 @@ int City::getGeneration() {
     return 1;
 }
 
-int City::countType(char organismCH) {
+int City::countType(City &city, char organismCH) {
     int count = 0;
 
     for (int i=0; i < GRIDSIZE; i++) {
         for (int j=0; j < GRIDSIZE; j++) {
-            if (grid[i][j]->getSpecies() == organismCH) count++;
+            if (city.grid[i][j] != nullptr) {
+                if (city.grid[i][j]->getSpecies() == organismCH) count++;
+            }
         }
     }
 

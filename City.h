@@ -27,7 +27,7 @@ public:
 
     int getGeneration();
 
-    int countType(char organismCH);
+    int countType(City &city, char organismCH);
 };
 
 #endif
