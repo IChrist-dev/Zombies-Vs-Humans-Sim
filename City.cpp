@@ -66,12 +66,14 @@ void City::move() {
 ostream &operator<<(ostream &output, City &city) {
     for (int i=0; i < GRIDSIZE; i++) {
         for (int j=0; j < GRIDSIZE; j++) {
+            if (j == GRIDSIZE - 1) {
+                output << "\n";
+            }
+
             if (city.grid[i][j] != nullptr) {
                 char orgChar = city.getOrganism(i, j)->getSpecies();
                 cout << orgChar;
                 output << orgChar;
-            } else if (j == GRIDSIZE - 1) {
-                output << "\n";
             }
             else {
                 output << '_';
