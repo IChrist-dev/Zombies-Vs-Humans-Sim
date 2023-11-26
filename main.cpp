@@ -24,10 +24,10 @@ int main() {
     int INTERVAL = (int) (PAUSE_SECONDS * 1000);
     chrono::milliseconds interval(INTERVAL);
 
-    while (city->hasDiversity()) { //while both humans and zombies exist
-        this_thread::sleep_for(interval);
-        ClearScreen();
-        city->move(); //includes all actions
+//    while (city->hasDiversity()) { //while both humans and zombies exist
+//        this_thread::sleep_for(interval);
+//        ClearScreen();
+//        city->move(); //includes all actions
 
 
 // Alternate multi-pass version with each activity happening in its own
@@ -39,12 +39,12 @@ int main() {
         //   city->zombiesStarve();
         //   city->countOrganisms(Z or H goes here);
 
-        city->reset(); //resets moved flags
-        city->countOrganisms(Z or H goes here);// run once for each type
+//        city->reset(); //resets moved flags
+//        city->countOrganisms(Z or H goes here);// run once for each type
         cout << *city; //prints city
         cout << "GENERATION " << city->getGeneration() << endl;
         cout << "HUMANS: " << city->countType(HUMAN_CH) << endl;
         cout << "ZOMBIES: " << city->countType(ZOMBIE_CH) << endl;
-    }//end while
+//    }//end while
 }//end main
 

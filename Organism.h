@@ -26,7 +26,8 @@ public:
 
     virtual void move() = 0;
     //virtual void spawn() = 0;
-    //virtual int getSpecies() = 0; //this could also be coded concrete here
+    virtual int getSpecies() = 0; // Pure virtual (abstract) method
+    virtual int getColor() = 0; // Pure virtual (abstract) method
     //virtual void getPosition() = 0;
 
     void setPosition( int x, int y );
@@ -34,6 +35,7 @@ public:
     bool isTurn();
 
     friend ostream& operator<<( ostream &output, Organism *organism );
+    static void addColor(int c);
 };
 
 #endif

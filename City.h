@@ -2,18 +2,17 @@
 #define _CITY_H
 
 #include <iostream>
+#include "GameSpecs.h"
 
 using namespace std;
 
 class Organism;
 
-const int GRID_WIDTH = 20;
-const int GRID_HEIGHT = 20;
-
 class City
 {
 protected:
-    Organism *grid[GRID_HEIGHT][GRID_WIDTH];
+    // Handle to the array itself
+    Organism *grid[GRIDSIZE][GRIDSIZE];
 
 public:
     City();
@@ -26,6 +25,9 @@ public:
 
     friend ostream& operator<<( ostream &output, City &city );
 
+    int getGeneration();
+
+    int countType(char organismCH);
 };
 
 #endif

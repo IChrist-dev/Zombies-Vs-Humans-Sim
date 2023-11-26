@@ -11,6 +11,10 @@ public:
     virtual ~Zombie();
 
     void move();
+
+    int getSpecies();
+
+    int getColor();
 };
 
 #endif

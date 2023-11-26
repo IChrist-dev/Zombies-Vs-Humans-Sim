@@ -11,6 +11,10 @@ public:
     virtual ~Human();
 
     void move();
+
+    int getSpecies();
+
+    int getColor();
 };
 
 #endif
