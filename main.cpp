@@ -26,7 +26,7 @@ int main() {
 
 //    while (city->hasDiversity()) { //while both humans and zombies exist
 //        this_thread::sleep_for(interval);
-//        ClearScreen();
+        ClearScreen();
 //        city->move(); //includes all actions
 
 

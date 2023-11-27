@@ -18,7 +18,7 @@ const int ITERATIONS = 1000; // max number of steps
 //0  = black				//9  = bright blue
 //1  = blue					//10 = bright green
 //2  = green				//11 = bright turquoise
-//3  = turquise				//12 = bright red
+//3  = turquoise			//12 = bright red
 //4  = red					//13 = bright pink
 //5  = pink					//14 = bright yellow
 //6  = yellow				//15 = bright white
@@ -26,6 +26,6 @@ const int ITERATIONS = 1000; // max number of steps
 //8  = white pale
 
 const int HUMAN_COLOR = 3; // turquoise
-const int ZOMBIE_COLOR = 14; // bright yellow
+const int ZOMBIE_COLOR = 12; // bright red
 
 #endif

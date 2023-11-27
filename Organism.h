@@ -35,7 +35,6 @@ public:
     bool isTurn();
 
     friend ostream& operator<<( ostream &output, Organism *organism );
-    static void addColor(int c);
 };
 
 #endif

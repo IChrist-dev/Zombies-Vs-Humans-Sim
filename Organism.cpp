@@ -40,15 +40,10 @@ bool Organism::isTurn() {
 }
 
 ostream &operator<<(ostream &output, Organism *organism) {
-    Organism::addColor(organism->getColor());
+    HANDLE hConsole;
+    hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hConsole, organism->getColor());
 
     output << organism->getSpecies();
     return output;
 }
-
-void Organism::addColor(int c) {
-    HANDLE  hConsole;
-    hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-    SetConsoleTextAttribute(hConsole, c);
-}
-
