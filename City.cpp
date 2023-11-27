@@ -117,7 +117,7 @@ ostream &operator<<(ostream &output, City &city) {
                 SetConsoleTextAttribute(hConsole, 7);
             }
             else {
-                output << "  " << '-';
+                output << "  " << SPACE_CH;
             }
         }
         output << "\n";
