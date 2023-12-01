@@ -21,13 +21,13 @@ void ClearScreen()
 
 int main() {
     City *city = new City();
-    int INTERVAL = (int) (PAUSE_SECONDS * 1000);
+    int INTERVAL = (int) (PAUSE_SECONDS * 5000);
     chrono::milliseconds interval(INTERVAL);
 
-//    while (city->hasDiversity()) { //while both humans and zombies exist
-//        this_thread::sleep_for(interval);
+    while (City::hasDiversity(*city)) { //while both humans and zombies exist
+        this_thread::sleep_for(interval);
         ClearScreen();
-//        city->move(); //includes all actions
+        //city->move(); //includes all actions
 
 
 // Alternate multi-pass version with each activity happening in its own
@@ -45,6 +45,6 @@ int main() {
         cout << "GENERATION " << city->getGeneration() << endl;
         cout << "HUMANS: " << city->countType(*city, HUMAN_CH) << endl;
         cout << "ZOMBIES: " << city->countType(*city, ZOMBIE_CH) << endl;
-//    }//end while
+    }//end while
 }//end main
 

@@ -20,9 +20,9 @@ City::City() {
     mt19937 gen(rd());
 
     // Initialize the grid
-    for (int i = 0; i < GRIDSIZE; ++i) {
-        for (int j = 0; j < GRIDSIZE; ++j) {
-            grid[i][j] = nullptr; // Initialize all elements to nullptr
+    for (auto & i : grid) {
+        for (auto & j : i) {
+            j = nullptr; // Initialize all elements to nullptr
         }
     }
 
@@ -73,14 +73,16 @@ City::City() {
             zCount++;
         }
     }
+
+    generation = 0;
 }
 
 // Destructor
 City::~City() {
     // Delete organisms, one by one
-    for (int i=0; i < GRIDSIZE; i++) {
-        for (int j=0; j < GRIDSIZE; j++) {
-            delete grid[i][j];
+    for (auto & i : grid) {
+        for (auto & j : i) {
+            delete j;
         }
     }
 }
@@ -122,25 +124,58 @@ ostream &operator<<(ostream &output, City &city) {
         }
         output << "\n";
     }
+    // Generation increments
+    city.generation++;
 
     return output;
 }
 
 int City::getGeneration() {
-    // TODO: Stubbed generation until I begin iterating
-    return 1;
+    return generation;
 }
 
 int City::countType(City &city, char organismCH) {
     int count = 0;
 
-    for (int i=0; i < GRIDSIZE; i++) {
-        for (int j=0; j < GRIDSIZE; j++) {
-            if (city.grid[i][j] != nullptr) {
-                if (city.grid[i][j]->getSpecies() == organismCH) count++;
+    for (auto & i : city.grid) {
+        for (auto & j : i) {
+            if (j != nullptr) {
+                if (j->getSpecies() == organismCH) count++;
             }
         }
     }
 
     return count;
+}
+
+bool City::hasDiversity(City &city) {
+    bool hasHumans = false;
+    bool hasZombies = false;
+
+    // Traverse until a human is found
+    for (auto & i : city.grid) {
+        for (int j=0; j < GRIDSIZE; j++) {
+            if (i[j] != nullptr) {
+                if (i[j]->getSpecies() == HUMAN_CH) {
+                    hasHumans = true;
+                    break;
+                }
+            }
+        }
+    }
+
+    // Traverse until a zombie is found
+    for (auto & i : city.grid) {
+        for (int j=0; j < GRIDSIZE; j++) {
+            if (i[j] != nullptr) {
+                if (i[j]->getSpecies() == ZOMBIE_CH) {
+                    hasZombies = true;
+                    break;
+                }
+            }
+        }
+    }
+
+    if (hasZombies && hasHumans) return true;
+    else return false;
 }

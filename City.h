@@ -15,6 +15,8 @@ protected:
     Organism *grid[GRIDSIZE][GRIDSIZE];
 
 public:
+    int generation;
+
     City();
     virtual ~City();
 
@@ -28,6 +30,8 @@ public:
     int getGeneration();
 
     int countType(City &city, char organismCH);
+
+    static bool hasDiversity(City &city);
 };
 
 #endif
