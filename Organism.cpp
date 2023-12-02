@@ -4,21 +4,11 @@
 
 #include <windows.h>
 #include "Organism.h"
+#include "GameSpecs.h"
 
-#include "Organism.h"
+Organism::Organism() : x(0), y(0), width(0), height(0), moved(false), city(nullptr) {}
 
-Organism::Organism() {
-    x = 0;
-    y = 0;
-    width = 0;
-    height = 0;
-    moved = false;
-    city = nullptr;
-}
-
-Organism::Organism(City *city, int width, int height) : city(city), width(width), height(height) {
-    x = 0;
-    y = 0;
+Organism::Organism(City *city, int x, int y) : city(city), x(x), y(y), width(GRIDSIZE), height(GRIDSIZE) {
     moved = false;
 }
 
@@ -32,7 +22,7 @@ void Organism::setPosition(int x, int y) {
 }
 
 void Organism::endTurn() {
-    moved = false;
+    moved = true;
 }
 
 bool Organism::isTurn() {

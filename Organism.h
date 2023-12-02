@@ -14,17 +14,17 @@ protected:
     int y;
     int width;
     int height;
-    bool moved;
     City *city;
-
-    enum { WEST, NORTH, EAST, SOUTH, NUM_DIRECTIONS };
+    enum direction { WEST, NORTH, EAST, SOUTH, NUM_DIRECTIONS };
 
 public:
+    bool moved;
+
     Organism();
-    Organism( City *city, int width, int height );
+    Organism( City *city, int x, int y );
     virtual ~Organism();
 
-    virtual void move() = 0;
+    virtual void move() = 0; // Pure virtual (abstract) method
     //virtual void spawn() = 0;
     virtual int getSpecies() = 0; // Pure virtual (abstract) method
     virtual int getColor() = 0; // Pure virtual (abstract) method

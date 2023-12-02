@@ -7,14 +7,14 @@ class Zombie : public Organism
 {
 public:
     Zombie();
-    Zombie( City *city, int width, int height );
-    virtual ~Zombie();
+    Zombie( City *city, int x, int y );
+    ~Zombie() override;
 
-    void move();
+    void move() override;
 
-    int getSpecies();
+    int getSpecies() override;
 
-    int getColor();
+    int getColor() override;
 };
 
 #endif

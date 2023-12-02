@@ -95,8 +95,37 @@ void City::setOrganism(Organism *organism, int x, int y) {
     this->grid[x][y] = organism;
 }
 
-void City::move() {
+// Defines top-level actions for a generation-tick
+void City::step(City &city) {
+    // First pass - set new positions
+    move(city);
 
+    // Second pass - print city to console
+    cout << city << endl;
+
+    // Third pass - reset moved flags
+    for (int i=0; i<GRIDSIZE; i++) {
+        for (int j=0; j<GRIDSIZE; j++) {
+            Organism* organism = grid[i][j];
+            if (organism != nullptr) {
+                organism->moved = false;
+            }
+        }
+    }
+}
+
+// Method to call every organism's move method
+void City::move(City &city) {
+    for (int i=0; i<GRIDSIZE; i++) {
+        for (int j=0; j<GRIDSIZE; j++) {
+            Organism* organism = grid[i][j];
+            if (organism != nullptr) {
+                if (organism->isTurn()) {
+                    organism->move();
+                }
+            }
+        }
+    }
 }
 
 // Printing function for city
@@ -148,15 +177,16 @@ int City::countType(City &city, char organismCH) {
     return count;
 }
 
+// Method will return true if at least one human and one zombie exist
 bool City::hasDiversity(City &city) {
     bool hasHumans = false;
     bool hasZombies = false;
 
     // Traverse until a human is found
     for (auto & i : city.grid) {
-        for (int j=0; j < GRIDSIZE; j++) {
-            if (i[j] != nullptr) {
-                if (i[j]->getSpecies() == HUMAN_CH) {
+        for (auto & j : i) {
+            if (j != nullptr) {
+                if (j->getSpecies() == HUMAN_CH) {
                     hasHumans = true;
                     break;
                 }
@@ -166,9 +196,9 @@ bool City::hasDiversity(City &city) {
 
     // Traverse until a zombie is found
     for (auto & i : city.grid) {
-        for (int j=0; j < GRIDSIZE; j++) {
-            if (i[j] != nullptr) {
-                if (i[j]->getSpecies() == ZOMBIE_CH) {
+        for (auto & j : i) {
+            if (j != nullptr) {
+                if (j->getSpecies() == ZOMBIE_CH) {
                     hasZombies = true;
                     break;
                 }

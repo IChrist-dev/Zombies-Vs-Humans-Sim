@@ -5,18 +5,18 @@
 #include "Zombie.h"
 #include "GameSpecs.h"
 
-Zombie::Zombie() {
+Zombie::Zombie() = default;
+
+// Parameterized constructor
+Zombie::Zombie(City *city, int x, int y) : Organism(city, x, y) {
 }
 
-Zombie::Zombie(City *city, int width, int height) : Organism(city, width, height) {
-}
-
-Zombie::~Zombie() {
-
-}
+Zombie::~Zombie() = default;
 
 void Zombie::move() {
 
+    // Finished moving for this step
+    this->endTurn();
 }
 
 int Zombie::getSpecies() {

@@ -10,11 +10,11 @@ class Organism;
 
 class City
 {
-protected:
+
+public:
     // Handle to the array itself
     Organism *grid[GRIDSIZE][GRIDSIZE];
 
-public:
     int generation;
 
     City();
@@ -23,7 +23,9 @@ public:
     Organism *getOrganism( int x, int y );
     void setOrganism( Organism *organism, int x, int y );
 
-    void move();
+    void step(City &city);
+
+    void move(City &city);
 
     friend ostream& operator<<( ostream &output, City &city );
 

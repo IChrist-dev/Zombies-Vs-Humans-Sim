@@ -27,7 +27,6 @@ int main() {
     while (City::hasDiversity(*city)) { //while both humans and zombies exist
         this_thread::sleep_for(interval);
         ClearScreen();
-        //city->move(); //includes all actions
 
 
 // Alternate multi-pass version with each activity happening in its own
@@ -41,7 +40,7 @@ int main() {
 
 //        city->reset(); //resets moved flags
 //        city->countOrganisms(Z or H goes here);// run once for each type
-        cout << *city; //prints city
+        city->step(*city);
         cout << "GENERATION " << city->getGeneration() << endl;
         cout << "HUMANS: " << city->countType(*city, HUMAN_CH) << endl;
         cout << "ZOMBIES: " << city->countType(*city, ZOMBIE_CH) << endl;

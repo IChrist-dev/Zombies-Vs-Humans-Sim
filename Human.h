@@ -7,14 +7,14 @@ class Human : public Organism
 {
 public:
     Human();
-    Human( City *city, int width, int height );
-    virtual ~Human();
+    Human( City *city, int x, int y );
+    ~Human() override;
 
-    void move();
+    void move() override;
 
-    int getSpecies();
+    int getSpecies() override;
 
-    int getColor();
+    int getColor() override;
 };
 
 #endif
