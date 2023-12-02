@@ -88,7 +88,8 @@ void Human::move() {
     // Finished moving for this step
     this->endTurn();
 }
-
+// TODO: Human recruit (is this the spawn method?)
+// TODO: Encapsulate sub-methods in a turn() overriding from organism
 int Human::getSpecies() {
     return HUMAN_CH;
 }

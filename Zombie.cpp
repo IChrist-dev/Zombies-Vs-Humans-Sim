@@ -14,6 +14,10 @@ Zombie::Zombie(City *city, int x, int y) : Organism(city, x, y) {
 Zombie::~Zombie() = default;
 
 void Zombie::move() {
+    // TODO: Zombie move
+    // TODO: Zombie turn method overriding from organism
+    // TODO: Zombie infect method
+    // TODO: Zombie starve
 
     // Finished moving for this step
     this->endTurn();
