@@ -97,16 +97,17 @@ void City::setOrganism(Organism *organism, int x, int y) {
 
 // Defines top-level actions for a generation-tick
 void City::step(City &city) {
-    // First pass - set new positions
-    move(city);
+    if (generation > 0) {
+        // First pass - set new positions
+        move(city);
+    }
 
     // Second pass - print city to console
     cout << city << endl;
 
     // Third pass - reset moved flags
-    for (int i=0; i<GRIDSIZE; i++) {
-        for (int j=0; j<GRIDSIZE; j++) {
-            Organism* organism = grid[i][j];
+    for (auto & i : grid) {
+        for (auto organism : i) {
             if (organism != nullptr) {
                 organism->moved = false;
             }
@@ -116,9 +117,8 @@ void City::step(City &city) {
 
 // Method to call every organism's move method
 void City::move(City &city) {
-    for (int i=0; i<GRIDSIZE; i++) {
-        for (int j=0; j<GRIDSIZE; j++) {
-            Organism* organism = grid[i][j];
+    for (auto & i : city.grid) {
+        for (auto organism : i) {
             if (organism != nullptr) {
                 if (organism->isTurn()) {
                     organism->move();

@@ -33,7 +33,7 @@ void Human::move() {
     }
 
     // Check right grid boundary
-    if ((currentY + 1) > width) {
+    if ((currentY + 1) < width) {
         // Check east cell
         if (city->grid[currentX][currentY + 1] == nullptr) {
             directionOptions.push_back(EAST);
@@ -41,7 +41,7 @@ void Human::move() {
     }
 
     // Check lower grid boundary
-    if ((currentX + 1) > height) {
+    if ((currentX + 1) < height) {
         // Check one cell south
         if (city->grid[currentX + 1][currentY] == nullptr) {
             directionOptions.push_back(SOUTH);

@@ -25,7 +25,7 @@ public:
 
     void step(City &city);
 
-    void move(City &city);
+    static void move(City &city);
 
     friend ostream& operator<<( ostream &output, City &city );
 
