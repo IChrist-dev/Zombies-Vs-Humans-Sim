@@ -81,7 +81,7 @@ void Human::move() {
                 break;
         }
 
-        city->grid[newX][newY] = this;
+        city->setOrganism(this, newX, newY);
         this->setPosition(newX, newY);
     }
 

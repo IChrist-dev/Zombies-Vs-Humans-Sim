@@ -21,7 +21,7 @@ void ClearScreen()
 
 int main() {
     City *city = new City();
-    int INTERVAL = (int) (PAUSE_SECONDS * 5000);
+    int INTERVAL = (int) (PAUSE_SECONDS * 10000);
     chrono::milliseconds interval(INTERVAL);
 
     while (City::hasDiversity(*city)) { //while both humans and zombies exist
