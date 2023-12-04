@@ -26,24 +26,6 @@ City::City() {
         }
     }
 
-    /*
-    Add random placement of Humans
-    While-loop only advanced to next human in 100 if it successfully placed someone in an empty space
-    */
-    int hCount = 0;
-    while (hCount < HUMAN_STARTCOUNT) {
-        int x = uniform_int_distribution<int>(0, GRIDSIZE - 1)(gen);
-        int y = uniform_int_distribution<int>(0, GRIDSIZE - 1)(gen);
-
-        // Check if the cell is occupied
-        if (grid[x][y] == nullptr) {
-            grid[x][y] = new Human(this, x, y);
-
-            // Successful placement of a human; While-loop can move to next person in the 100
-            hCount++;
-        }
-    }
-
     // Set initial Zombie placement - similar to human logic but with quadrant distribution
     int quadrantSize = GRIDSIZE / 2;
     for (int quadX = 0; quadX < 2; quadX++) {
@@ -71,6 +53,24 @@ City::City() {
             grid[x][y] = new Zombie(this, x, y);
 
             zCount++;
+        }
+    }
+
+    /*
+    Add random placement of Humans
+    While-loop only advanced to next human in 100 if it successfully placed someone in an empty space
+    */
+    int hCount = 0;
+    while (hCount < HUMAN_STARTCOUNT) {
+        int x = uniform_int_distribution<int>(0, GRIDSIZE - 1)(gen);
+        int y = uniform_int_distribution<int>(0, GRIDSIZE - 1)(gen);
+
+        // Check if the cell is occupied
+        if (grid[x][y] == nullptr) {
+            grid[x][y] = new Human(this, x, y);
+
+            // Successful placement of a human; While-loop can move to next person in the 100
+            hCount++;
         }
     }
 

@@ -15,7 +15,7 @@ protected:
     int width;
     int height;
     City *city;
-    enum direction { WEST, NORTH, EAST, SOUTH, NUM_DIRECTIONS };
+    enum direction { WEST, NORTH, EAST, SOUTH, NORTHWEST, NORTHEAST, SOUTHEAST, SOUTHWEST };
 
 public:
     bool moved;
