@@ -44,6 +44,11 @@ int main() {
         cout << "GENERATION " << city->getGeneration() << endl;
         cout << "HUMANS: " << city->countType(*city, HUMAN_CH) << endl;
         cout << "ZOMBIES: " << city->countType(*city, ZOMBIE_CH) << endl;
-    }//end while
-}//end main
+    } // End while
+
+    if (!city->hasDiversity(*city)) {
+        ClearScreen();
+        cout << EXTINCTION_MSG << endl;
+    }
+} // End main
 
