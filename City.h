@@ -34,6 +34,10 @@ public:
     int countType(City &city, char organismCH);
 
     static bool hasDiversity(City &city);
+
+    static void removeOrganism(City &city, int x, int y);
+
+    void convertOrganism(int x, int y);
 };
 
 #endif

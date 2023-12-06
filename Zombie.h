@@ -5,12 +5,18 @@
 
 class Zombie : public Organism
 {
+protected:
+    int infectCount;
+    int starveCount;
 public:
     Zombie();
     Zombie( City *city, int x, int y );
     ~Zombie() override;
 
+    void organismTurn() override;
     void move() override;
+    bool breed();
+    void starve();
 
     int getSpecies() override;
 

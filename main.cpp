@@ -24,7 +24,7 @@ int main() {
     int INTERVAL = (int) (PAUSE_SECONDS * 10000);
     chrono::milliseconds interval(INTERVAL);
 
-    while (City::hasDiversity(*city)) { //while both humans and zombies exist
+    while (City::hasDiversity(*city) && city->generation < ITERATIONS) { //while both humans and zombies exist
         this_thread::sleep_for(interval);
         ClearScreen();
 
@@ -49,6 +49,8 @@ int main() {
     if (!city->hasDiversity(*city)) {
         ClearScreen();
         cout << EXTINCTION_MSG << endl;
+        string consoleCommand = "start " + OFURTUNAFILE;
+        system(consoleCommand.c_str());
     }
 } // End main
 

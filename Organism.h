@@ -24,6 +24,7 @@ public:
     Organism( City *city, int x, int y );
     virtual ~Organism();
 
+    virtual void organismTurn() = 0; // abstract driver for organism's behaviours
     virtual void move() = 0; // Pure virtual (abstract) method
     //virtual void spawn() = 0;
     virtual int getSpecies() = 0; // Pure virtual (abstract) method

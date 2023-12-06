@@ -121,7 +121,7 @@ void City::move(City &city) {
         for (auto organism : i) {
             if (organism != nullptr) {
                 if (organism->isTurn()) {
-                    organism->move();
+                    organism->organismTurn();
                 }
             }
         }
@@ -208,4 +208,20 @@ bool City::hasDiversity(City &city) {
 
     if (hasZombies && hasHumans) return true;
     else return false;
+}
+
+// Function to remove organism used when zombies eat humans
+void City::removeOrganism(City &city, int x, int y) {
+    if (city.grid[x][y] != nullptr) {
+        city.grid[x][y] = nullptr;
+    }
+}
+
+void City::convertOrganism(int x, int y) {
+    // Remove zombie at coordinates and replace them with a human
+    //delete this->grid[x][y];
+    this->grid[x][y] = nullptr;
+
+    // Create a new Human at the same coordinates
+    this->grid[x][y] = new Human(this, x, y);
 }
