@@ -26,10 +26,8 @@ public:
 
     virtual void organismTurn() = 0; // abstract driver for organism's behaviours
     virtual void move() = 0; // Pure virtual (abstract) method
-    //virtual void spawn() = 0;
     virtual int getSpecies() = 0; // Pure virtual (abstract) method
     virtual int getColor() = 0; // Pure virtual (abstract) method
-    //virtual void getPosition() = 0;
 
     void setPosition( int x, int y );
     void endTurn();

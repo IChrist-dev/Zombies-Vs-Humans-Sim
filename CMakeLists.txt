@@ -4,7 +4,6 @@ project(CPP_Assignment_4)
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(CPP_Assignment_4 main.cpp
-        GameSpecs.cpp
         GameSpecs.h
         City.cpp
         City.h
