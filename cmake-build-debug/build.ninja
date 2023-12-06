@@ -55,12 +55,6 @@ build CMakeFiles/CPP_Assignment_4.dir/main.cpp.obj: CXX_COMPILER__CPP_Assignment
   OBJECT_DIR = CMakeFiles\CPP_Assignment_4.dir
   OBJECT_FILE_DIR = CMakeFiles\CPP_Assignment_4.dir
 
-build CMakeFiles/CPP_Assignment_4.dir/GameSpecs.cpp.obj: CXX_COMPILER__CPP_Assignment_4_unscanned_Debug C$:/Users/Ian/CLionProjects/CPP-Assignment_4/GameSpecs.cpp || cmake_object_order_depends_target_CPP_Assignment_4
-  DEP_FILE = CMakeFiles\CPP_Assignment_4.dir\GameSpecs.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\CPP_Assignment_4.dir
-  OBJECT_FILE_DIR = CMakeFiles\CPP_Assignment_4.dir
-
 build CMakeFiles/CPP_Assignment_4.dir/City.cpp.obj: CXX_COMPILER__CPP_Assignment_4_unscanned_Debug C$:/Users/Ian/CLionProjects/CPP-Assignment_4/City.cpp || cmake_object_order_depends_target_CPP_Assignment_4
   DEP_FILE = CMakeFiles\CPP_Assignment_4.dir\City.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
@@ -93,7 +87,7 @@ build CMakeFiles/CPP_Assignment_4.dir/Zombie.cpp.obj: CXX_COMPILER__CPP_Assignme
 #############################################
 # Link the executable CPP_Assignment_4.exe
 
-build CPP_Assignment_4.exe: CXX_EXECUTABLE_LINKER__CPP_Assignment_4_Debug CMakeFiles/CPP_Assignment_4.dir/main.cpp.obj CMakeFiles/CPP_Assignment_4.dir/GameSpecs.cpp.obj CMakeFiles/CPP_Assignment_4.dir/City.cpp.obj CMakeFiles/CPP_Assignment_4.dir/Human.cpp.obj CMakeFiles/CPP_Assignment_4.dir/Organism.cpp.obj CMakeFiles/CPP_Assignment_4.dir/Zombie.cpp.obj
+build CPP_Assignment_4.exe: CXX_EXECUTABLE_LINKER__CPP_Assignment_4_Debug CMakeFiles/CPP_Assignment_4.dir/main.cpp.obj CMakeFiles/CPP_Assignment_4.dir/City.cpp.obj CMakeFiles/CPP_Assignment_4.dir/Human.cpp.obj CMakeFiles/CPP_Assignment_4.dir/Organism.cpp.obj CMakeFiles/CPP_Assignment_4.dir/Zombie.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\CPP_Assignment_4.dir
